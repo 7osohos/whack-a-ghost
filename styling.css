@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff9d8;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_game {
+  width: 500px;
+  height: 700px;
+  background: #481e14;
+  padding: 30px;
+  border-radius: 30px;
+  transform: skew(0, 100px);
+  box-shadow: 0 0 30px rgb(0, 0, 0), 0 0 10px black, 0 0 50px black;
+}
+.holes {
+  width: 100%;
+  height: 70%;
+  background-color: #f2613f;
+  justify-self: flex-end;
+  box-shadow: inset 0 0 15px black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.hole {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  box-shadow: 0 0 0px black, inset 0px 10px 10px #f2613f;
+  position: relative;
+}
+.mole {
+  position: absolute;
+  left: 5%;
+  bottom: 20px;
+  width: 90px;
+  height: 130px;
+  overflow: hidden;
+  background-color: #e2dfd0a8;
+  box-shadow: inset -20px -10px 9px -5px black;
+  box-shadow: inset -0px -10px 20px 0px black;
+  border-radius: 50px;
+  display: flex;
+  padding: 30px 10px;
+  flex-direction: column;
+  cursor: pointer;
+  /* transition: 0.2s; */
+  opacity: 0;
+  align-items: center;
+  animation: mole 1s linear;
+}
+@keyframes mole {
+  0% {
+    opacity: 0;
+    height: 0;
+    box-shadow: inset -20px -10px 9px -5px black;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    box-shadow: inset -20px -10px 9px -5px black;
+  }
+  60%,
+  80% {
+    height: 130px;
+    box-shadow: inset -0px -10px 20px 0px black;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.mole div {
+  pointer-events: none;
+}
+.mole .eye {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
+.left,
+.right {
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.left::after,
+.right::after {
+  content: "";
+  width: 10px;
+  opacity: 0;
+  transition: 0.3s;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: black;
+}
+.mouth {
+  width: 25px;
+  height: 20px;
+  margin-top: 10px;
+  background-color: #000;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.attacked {
+  background-color: #f2613f;
+  box-shadow: inset -0px -10px 20px 0px black;
+  animation: attack 0.5s linear;
+  opacity: 1;
+  height: 0px;
+}
+@keyframes attack {
+  0% {
+    height: 130px;
+  }
+
+  100% {
+    height: 0;
+  }
+}
+.attacked .eye div {
+  background-color: white;
+}
+.attacked .eye div::after {
+  opacity: 1;
+}
+.attacked .mouth {
+  height: 5px;
+  background-color: white;
+}
+.score {
+  padding: 30px;
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Dosis", sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #e2dfd0;
+}
+.hammer {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+@media (max-width:700px){
+  .main_game{
+    scale: 0.8 !important;
+  }
+  .hole{
+    width: 70px;
+    height: 70px;
+  }
+  .mole{
+    scale: 0.7;
+    left: -9px;
+    bottom: -10px;
+  }
+}
